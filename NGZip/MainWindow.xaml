@@ -1,0 +1,48 @@
+﻿<Window x:Class="NGZip.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NGZip"
+        mc:Ignorable="d"
+        Title="NGZip - Начало" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- занимает столько места, сколько надо содержимому -->
+            <RowDefinition/>
+            <!-- занимает всё доступное место, можно указать Height="*" и получить то же самое -->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Name="Wellcome" FontSize="30" HorizontalAlignment="Center">NGZip</TextBlock>
+        <TextBlock Margin="10,50,10,0" FontSize="18" TextWrapping="WrapWithOverflow" >Выберите все нужные варианты</TextBlock>
+        <CheckBox Name="onefile" Margin="10,84,496,326" IsChecked="True">Сохранить всё в один файл</CheckBox>
+        <CheckBox Click="zip_Checked" Name="zip" Margin="10,108,496,302">Сжать</CheckBox>
+
+        <TextBlock Opacity="0" Name="ziptypetext" Margin="342,86,286,314" FontSize="18">Если уж и сжать то:</TextBlock>
+        <ComboBox Opacity="0" Name="ziptype" Margin="514,86,10,326" FontSize="18">
+            <TextBlock>Минимальное сжатие</TextBlock>
+            <TextBlock>Среднячёк</TextBlock>
+            <TextBlock>Максимальное сжатие</TextBlock>
+        </ComboBox>
+
+        <CheckBox IsEnabled="False" Click="ngonly_Checked" Name="ngonly" Margin="10,131,642,282">Зашифровать</CheckBox>
+
+        <TextBlock Opacity="0" Name="enctypetext" Margin="342,131,286,269" FontSize="18">Тип шифрования:</TextBlock>
+        <ComboBox SelectionChanged="enctype_Selected" Opacity="0" Name="enctype" Margin="514,130,10,282" FontSize="18">
+            <TextBlock>Доступ только для участников НГ</TextBlock>
+            <TextBlock>Только для меня</TextBlock>
+            <TextBlock>Собственный ключ</TextBlock>
+        </ComboBox>
+
+        <TextBlock Opacity="0" Name="keytext" Margin="616,182,12,218" FontSize="18">Ключ для шифровки:</TextBlock>
+        <TextBox Opacity="0" Name="key" Margin="342,205,10,205" FontSize="18"></TextBox>
+
+        <Button Name="Download" Margin="10,290,571,95" FontSize="30">Начать</Button>
+        <TextBlock Margin="0,362,648,38" FontSize="18" HorizontalAlignment="Right">Путь к файлу:</TextBlock>
+        <TextBox Name="Pathih" Margin="157,362,10,56" FontSize="18"></TextBox>
+
+        <Button Name="Exit" Margin="692,319,10,95" FontSize="15">выйти</Button>
+    </Grid>
+</Window>
